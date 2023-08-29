@@ -28,10 +28,10 @@ int lomuto_partition(int *array, size_t size, int left, int right)
 {
 	int pivot, high, low;
 
-	*pivot = array + right;
+	pivot = array[right];
 	for (high = low = left; low < right; low++)
 	{
-		if (array[low] < *pivot)
+		if (array[low] < pivot)
 		{
 			if (high < low)
 			{
@@ -41,10 +41,10 @@ int lomuto_partition(int *array, size_t size, int left, int right)
 			high++;
 		}
 	}
-	
-	if (array[high] > *pivot)
+
+	if (array[high] > pivot)
 	{
-		swap_int(array + high, pivot);
+		swap_int(array + high, array + right);
 		print_array(array, size);
 	}
 	return (high);
@@ -76,13 +76,13 @@ void lomuto_sort(int *array, size_t size, int left, int right)
   * using the quicksort algorithm
   * @array: An array of integers
   * @size: The size of the array
-  * Description: Use the Lomuto partition scheme to print the 
+  * Description: Use the Lomuto partition scheme to print the
   * array after swapping two elements
   */
 void quick_sort(int *array, size_t size)
 {
 	if (array == NULL || size < 2)
 		return;
-	
+
 	lomuto_sort(array, size, 0, size - 1);
 }
