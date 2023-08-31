@@ -63,14 +63,14 @@ void cocktail_sort_list(listint_t **list)
 
 	if (list == NULL || *list == NULL || (*list)->next == NULL)
 		return;
-	
+
 	for (tail = *list; tail->next != NULL;)
 		tail = tail->next;
 
 	while (shaken == false)
 	{
 		shaken = true;
-		for (shaker = *list; shaker != tail; shaker = shaker ->next)
+		for (shaker = *list; shaker != tail; shaker = shaker->next)
 		{
 			if (shaker->n > shaker->next->n)
 			{
