@@ -7,7 +7,7 @@
  * @node1: A pointer to the tail of the doubly-linked list.
  * @node2: A pointer to the current swapping node of the cocktail shaker
  */
-void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2) 
+void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2)
 {
 	if (node1->prev != NULL)
 		node1->prev->next = node2;
@@ -32,15 +32,15 @@ void cocktail_sort_list(listint_t **list)
 {
 	int swapped;
 	listint_t *p1, *p2, *end = NULL;
+
 	if (list == NULL || *list == NULL)
 		return;
-	do 
-	{
+	do {
 		swapped = 0;
 		p1 = *list;
-		while (p1->next != end) 
+		while (p1->next != end)
 		{
-			if (p1->n > p1->next->n) 
+			if (p1->n > p1->next->n)
 			{
 				swap_nodes(list, p1, p1->next);
 				print_list(*list);
@@ -53,9 +53,9 @@ void cocktail_sort_list(listint_t **list)
 			break;
 		swapped = 0;
 		p2 = p1;
-		while (p2->prev != *list) 
+		while (p2->prev != *list)
 		{
-			if (p2->n < p2->prev->n) 
+			if (p2->n < p2->prev->n)
 			{
 				swap_nodes(list, p2->prev, p2);
 				print_list(*list);
@@ -65,6 +65,5 @@ void cocktail_sort_list(listint_t **list)
 				p2 = p2->prev;
 		}
 		end = p2;
-	}
-	while (swapped);
+	} while (swapped);
 }
