@@ -16,7 +16,6 @@ void merge(int *array, int *left, int *right,
 
 	if (temp == NULL)
 	{
-		free(array);
 		return;
 	}
 	printf("Merging...\n[left]: ");
